@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>DA 24 — студия детейлинга в Красноярске</title>
+<meta name="description" content="Бронирование авто, тонировка, химчистка, полировка, ремонт сколов, ПДР, шумоизоляция. Красноярск.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600&family=Unbounded:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#EEF2F2;--surface:#FFFFFF;--ink:#0C2229;--muted:#4F666C;--line:#CBD7D9;--accent:#E8A317;--accent-ink:#1A1300;--steel:#0F3A45;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){color-scheme:dark;--bg:#0A1A1F;--surface:#102A31;--ink:#E7EFEF;--muted:#93ADB3;--line:#1F4049;--steel:#7FC4D3}}
+:root[data-theme="dark"]{color-scheme:dark;--bg:#0A1A1F;--surface:#102A31;--ink:#E7EFEF;--muted:#93ADB3;--line:#1F4049;--steel:#7FC4D3}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.55 Onest,system-ui,"Segoe UI",Arial,sans-serif}
+h1,h2,h3{font-family:Unbounded,"Arial Black",system-ui,sans-serif;font-weight:700;line-height:1.1;margin:0;letter-spacing:-.01em}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:14px 24px;border-radius:999px;background:var(--accent);color:var(--accent-ink);font-weight:600;text-decoration:none;border:0;cursor:pointer;font-size:17px}
+.btn.ghost{background:transparent;color:inherit;border:1.5px solid currentColor}
+header.top{position:sticky;top:0;z-index:20;background:#0A1D23;color:#E7EFEF;padding-top:env(safe-area-inset-top,0px)}
+header.top .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
+.logo{font-family:Unbounded,sans-serif;font-weight:700;font-size:20px;text-decoration:none;letter-spacing:.02em}
+.logo span{color:var(--accent)}
+header.top .btn{padding:9px 18px;font-size:15px}
+.hero{background:radial-gradient(1200px 500px at 80% -10%,#1B5563 0%,transparent 60%),#0A1D23;color:#E7EFEF;padding:48px 0 64px}
+.hero .wrap{display:grid;gap:40px;grid-template-columns:1fr}
+@media(min-width:900px){.hero .wrap{grid-template-columns:1.05fr 1fr;align-items:center}}
+.hero h1{font-size:clamp(30px,5.4vw,52px)}
+.hero p{color:#A9C2C8;max-width:46ch;margin:18px 0 28px}
+.cta{display:flex;flex-wrap:wrap;gap:12px}
+.facts{display:flex;flex-wrap:wrap;gap:8px 22px;margin-top:28px;color:#A9C2C8;font-size:15px}
+.facts b{color:#fff;font-weight:600}
+/* polish slider */
+.polish{position:relative;aspect-ratio:4/3;border-radius:22px;overflow:hidden;border:1px solid #2A5560;user-select:none;touch-action:pan-y}
+.layer{position:absolute;inset:0}
+.before,.after{background:radial-gradient(ellipse at 50% 100%,#1D4450 0%,#0D252C 70%)}
+.after{clip-path:inset(0 0 0 50%)}
+.layer svg{position:absolute;inset:0;width:100%;height:100%}
+.tag{position:absolute;bottom:14px;padding:5px 12px;border-radius:999px;font-size:13px;font-weight:600;background:rgba(10,29,35,.75);color:#fff}
+.tag.l{left:14px}.tag.r{right:14px}
+.bar{position:absolute;top:0;bottom:0;left:50%;width:3px;background:#fff;transform:translateX(-50%);pointer-events:none}
+.bar i{position:absolute;top:50%;left:50%;width:44px;height:44px;margin:-22px;border-radius:50%;background:var(--accent);box-shadow:0 2px 12px rgba(0,0,0,.4)}
+.polish input{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:ew-resize;margin:0}
+.polish:focus-within{outline:3px solid var(--accent);outline-offset:3px}
+.cap{font-size:13px;color:#7FA0A8;margin:10px 4px 0}
+section{padding:64px 0}
+h2{font-size:clamp(24px,4vw,36px);margin-bottom:12px}
+.lead{color:var(--muted);max-width:60ch;margin:0 0 28px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px}
+.chip{padding:9px 16px;border-radius:999px;border:1.5px solid var(--line);background:transparent;color:var(--ink);font:500 15px Onest,sans-serif;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--steel);border-color:var(--steel);color:#fff}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .chip[aria-pressed="true"]{color:#06161B}}
+.list{display:grid;gap:0;border-top:1px solid var(--line)}
+.row{display:grid;grid-template-columns:1fr auto;gap:4px 20px;padding:18px 0;border-bottom:1px solid var(--line);align-items:baseline}
+.row small{grid-column:1;color:var(--muted);font-size:14px}
+.row .n{font-weight:600}
+.row .p{font-family:Unbounded,sans-serif;font-weight:500;font-size:16px;white-space:nowrap;grid-row:1;grid-column:2}
+.note{color:var(--muted);font-size:14px;margin-top:16px}
+.two{display:grid;gap:20px}
+@media(min-width:760px){.two{grid-template-columns:1fr 1fr}}
+.box{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:26px}
+.box h3{font-size:18px;margin-bottom:14px}
+.box ul{margin:0;padding-left:20px;color:var(--muted)}
+.box li{margin:5px 0}
+.rate{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}
+.rate strong{font:700 56px/1 Unbounded,sans-serif}
+.contact{background:#0A1D23;color:#E7EFEF}
+.contact .lead{color:#A9C2C8}
+.contact .box{background:#102A31;border-color:#1F4049}
+.contact .box h3{color:#fff}
+.phone{font:700 clamp(22px,4.4vw,30px) Unbounded,sans-serif;text-decoration:none;display:block;margin:6px 0}
+.box .cta{margin-top:18px}
+.contact dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:8px 16px}
+.contact dt{color:#7FA0A8}.contact dd{margin:0}
+footer{background:#071519;color:#7FA0A8;font-size:14px;padding:24px 0 calc(24px + env(safe-area-inset-bottom,0px))}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap">
+<a class="logo" href="#top">DA<span>24</span></a>
+<a class="btn" href="tel:+79937232305">Позвонить</a>
+</div></header>
+
+<main id="top">
+<div class="hero"><div class="wrap">
+<div>
+<h1>Кузов, салон и стёкла вашего авто — в идеальном состоянии</h1>
+<p>Студия детейлинга в Красноярске: бронирование плёнкой, тонировка, химчистка, полировка, ремонт сколов и вмятин.</p>
+<div class="cta">
+<a class="btn" href="tel:+79937232305">Записаться по телефону</a>
+<a class="btn ghost" href="#prices">Смотреть цены</a>
+</div>
+<div class="facts"><span><b>5,0</b> рейтинг</span><span><b>70</b> оценок</span><span>Профиль подтверждён</span><span>Красноярск, 4-я Дальневосточная, 24</span></div>
+</div>
+<div>
+<div class="polish" id="polish">
+<div class="layer before"><svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+<ellipse cx="200" cy="238" rx="170" ry="12" fill="#000" opacity=".35"/>
+<path id="bodyB" d="M28 190 L40 158 Q52 142 88 137 L138 108 Q153 98 178 96 L258 96 Q288 98 308 122 L334 137 Q368 141 374 162 L378 190 Q378 200 368 200 L36 200 Q26 200 28 190 Z" fill="#667A7F"/>
+<path d="M142 137 L172 109 L218 109 L218 137 Z M228 109 L256 109 Q274 111 288 137 L228 137 Z" fill="#34484E"/>
+<g fill="#1A2A2F"><circle cx="105" cy="200" r="30"/><circle cx="295" cy="200" r="30"/></g>
+<g fill="#8DA0A4"><circle cx="105" cy="200" r="15"/><circle cx="295" cy="200" r="15"/></g>
+<g fill="none" stroke="#C9D6D8" stroke-width="1" opacity=".7" stroke-linecap="round">
+<path d="M60 168 Q90 160 118 170"/><path d="M70 176 Q100 170 130 178"/><path d="M150 150 Q185 140 215 152"/><path d="M160 162 Q200 152 240 166"/><path d="M230 168 Q262 158 292 170"/><path d="M262 150 Q296 146 330 158"/><path d="M300 176 Q330 168 360 180"/><path d="M90 186 Q130 180 170 188"/><path d="M185 180 Q225 174 262 184"/><path d="M120 150 L150 164"/><path d="M200 128 L246 120"/><path d="M310 140 L340 152"/>
+</g>
+<path d="M28 190 L40 158 Q52 142 88 137 L138 108 Q153 98 178 96 L258 96 Q288 98 308 122 L334 137 Q368 141 374 162 L378 190 Q378 200 368 200 L36 200 Q26 200 28 190 Z" fill="#9FB0B3" opacity=".25"/>
+</svg></div>
+<div class="layer after" id="after"><svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+<defs><linearGradient id="gl" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3AA3BA"/><stop offset=".45" stop-color="#0F5568"/><stop offset=".5" stop-color="#0A3A47"/><stop offset="1" stop-color="#071F26"/></linearGradient>
+<linearGradient id="sh" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".5" stop-color="#fff" stop-opacity=".55"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient></defs>
+<ellipse cx="200" cy="238" rx="170" ry="12" fill="#000" opacity=".35"/>
+<path d="M28 190 L40 158 Q52 142 88 137 L138 108 Q153 98 178 96 L258 96 Q288 98 308 122 L334 137 Q368 141 374 162 L378 190 Q378 200 368 200 L36 200 Q26 200 28 190 Z" fill="url(#gl)"/>
+<path d="M142 137 L172 109 L218 109 L218 137 Z M228 109 L256 109 Q274 111 288 137 L228 137 Z" fill="#0A1A1F"/>
+<path d="M46 156 Q60 146 90 143 L140 116 Q156 106 180 104 L256 104" fill="none" stroke="#fff" stroke-width="3" opacity=".6" stroke-linecap="round"/>
+<path d="M120 150 L200 150 L180 176 L100 176 Z" fill="url(#sh)" opacity=".6"/>
+<g fill="#0C1519"><circle cx="105" cy="200" r="30"/><circle cx="295" cy="200" r="30"/></g>
+<g fill="#D5E2E4"><circle cx="105" cy="200" r="15"/><circle cx="295" cy="200" r="15"/></g>
+<g fill="#fff" opacity=".9"><path d="M330 114 l3 8 l8 3 l-8 3 l-3 8 l-3 -8 l-8 -3 l8 -3 z"/><path d="M70 128 l2 5 l5 2 l-5 2 l-2 5 l-2 -5 l-5 -2 l5 -2 z"/></g>
+</svg></div>
+<span class="tag l">До</span><span class="tag r">После полировки</span>
+<div class="bar" id="bar"><i></i></div>
+<input type="range" min="0" max="100" value="50" id="rng" aria-label="Сравнить кузов до и после полировки">
+</div>
+<p class="cap">Иллюстрация: потяните ползунок, чтобы увидеть разницу.</p>
+</div>
+</div></div>
+
+<section id="prices"><div class="wrap">
+<h2>Услуги и цены</h2>
+<p class="lead">Выберите направление. Цены указаны «от» — точную стоимость назовём после осмотра автомобиля.</p>
+<div class="chips" id="chips" role="group" aria-label="Категории услуг"></div>
+<div class="list" id="list"></div>
+<p class="note">Информация о ценах не является публичной офертой. Данные обновлены 13 июня 2026.</p>
+</div></section>
+
+<section style="padding-top:0"><div class="wrap two">
+<div class="box">
+<h3>Кузовной ремонт</h3>
+<ul><li>Восстановление геометрии</li><li>Полировка</li><li>Ремонт вмятин</li></ul>
+</div>
+<div class="box">
+<h3>Тюнинг</h3>
+<ul><li>Нанесение плёнки</li><li>Перетяжка салона</li><li>Тюнинг дисков и подвески</li><li>Установка ксенона</li><li>Хромирование</li><li>Шумоизоляция салона</li><li>Парковочные радары и камеры заднего вида</li></ul>
+</div>
+</div></section>
+
+<section style="padding-top:0"><div class="wrap">
+<div class="box rate">
+<strong>5,0</strong>
+<div><b>Высшая оценка: 70 оценок, 64 отзыва в 2ГИС</b><br><span style="color:var(--muted)">Студия подтверждена в справочнике, данные актуальны.</span><br><a href="https://2gis.ru/krasnoyarsk/firm/70000001112848249/tab/reviews" target="_blank" rel="noopener">Читать отзывы</a> · <a href="https://2gis.ru/krasnoyarsk/gallery/firm/70000001112848249" target="_blank" rel="noopener">Смотреть 253 фото работ</a></div>
+</div>
+</div></section>
+
+<section class="contact" id="contacts"><div class="wrap">
+<h2>Как нас найти</h2>
+<p class="lead">Позвоните — подберём время и расскажем, что нужно вашему автомобилю.</p>
+<div class="two">
+<div class="box">
+<h3>Запись и вопросы</h3>
+<a class="phone" href="tel:+79937232305">+7 993 723-23-05</a>
+<a class="phone" href="tel:+79632628212">+7 963 262-82-12</a>
+<div class="cta"><a class="btn" href="tel:+79937232305">Позвонить на 05</a><a class="btn ghost" href="tel:+79632628212">Позвонить на 12</a></div>
+</div>
+<div class="box">
+<h3>Проезд</h3>
+<dl>
+<dt>Адрес</dt><dd>Красноярск, 4-я Дальневосточная улица, 24</dd>
+<dt>Остановка</dt><dd>10-я Продольная — 5 мин пешком, 500 м</dd>
+<dt>Парковка</dt><dd>Есть, 1 парковка</dd>
+<dt>Режим работы</dt><dd>Уточняйте по телефону</dd>
+</dl>
+<div class="cta" style="margin-top:18px"><a class="btn" href="https://2gis.ru/krasnoyarsk/directions/points/%7C92.853116%2C56.038129%3B70000001112848249" target="_blank" rel="noopener">Построить маршрут</a><a class="btn ghost" href="https://2gis.ru/krasnoyarsk/firm/70000001112848249/92.853116%2C56.038129/tab/inside?m=92.855652%2C56.038526%2F17.01" target="_blank" rel="noopener">Открыть в 2ГИС</a></div>
+</div>
+</div>
+</div></section>
+</main>
+<footer><div class="wrap">© DA 24, Красноярск. Цены ориентировочные и не являются публичной офертой.</div></footer>
+
+<script>
+(function(){
+var G=[
+["Бронирование авто",[["Оклейка / бронирование зон риска","от 50 000 ₽"],["Полное бронирование / замена цвета кузова","от 180 000 ₽"]]],
+["Тонирование",[["Тонирование","от 1 500 ₽"]]],
+["Химчистка",[["Химчистка салона","от 10 000 ₽"],["Предпродажная подготовка","от 20 000 ₽"]]],
+["Полировка и мойка",[["Полировка кузовных элементов","от 1 000 ₽"],["Мойка 2/3-фазная","от 1 800 ₽"]]],
+["Ремонт кузова",[["Ремонт сколов","от 500 ₽"],["Выпрямление вмятин (ПДР)","от 3 000 ₽"],["Кузовной ремонт / покраска","от 1 000 ₽"],["Покраска дисков","от 3 000 ₽"]]],
+["Салон",[["Реставрация кожи и пластика, покраска кожи","от 1 000 ₽","Любая сложность"],["Перешиваем руль / АКПП","от 2 000 ₽"],["Пошив авто чехлов и 3D-ковров","от 10 000 ₽","Любые формы и цвета"],["Шумоизоляция","от 5 000 ₽"]]],
+["Электроника",[["Установка мультимедиа / сигнализации","от 5 000 ₽"],["Автоэлектрик","от 1 000 ₽"],["Заправка и диагностика автокондиционеров","от 2 000 ₽"]]],
+["Хранение",[["Хранение резины / дисков","от 500 ₽"]]]
+];
+var chips=document.getElementById('chips'),list=document.getElementById('list'),cur=-1;
+function render(){
+var items=[];G.forEach(function(g,i){if(cur<0||cur===i)g[1].forEach(function(s){items.push(s)})});
+list.innerHTML=items.map(function(s){return '<div class="row"><span class="n">'+s[0]+'</span><span class="p">'+s[1]+'</span>'+(s[2]?'<small>'+s[2]+'</small>':'')+'</div>'}).join('');
+[].forEach.call(chips.children,function(c,i){c.setAttribute('aria-pressed',String(i-1===cur))});
+}
+['Все'].concat(G.map(function(g){return g[0]})).forEach(function(t,i){
+var b=document.createElement('button');b.className='chip';b.type='button';b.textContent=t;
+b.onclick=function(){cur=i-1;render()};chips.appendChild(b)});
+render();
+var r=document.getElementById('rng'),a=document.getElementById('after'),bar=document.getElementById('bar');
+function mv(){a.style.clipPath='inset(0 0 0 '+r.value+'%)';bar.style.left=r.value+'%'}
+r.addEventListener('input',mv);mv();
+})();
+</script>
+</body>
+</html>
